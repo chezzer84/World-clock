@@ -12,19 +12,34 @@ function updateTime() {
       "h:mm:ss [<small>]A[</small>]"
     );
   }
-}
-//Sydney
 
-let sydneyElement = document.querySelector("#sydney");
-if (sydneyElement) {
-  let sydneyDateElement = sydneyElement.querySelector(".date");
-  let sydneyTimeElement = sydneyElement.querySelector(".time");
-  let sydneyTime = moment().tz("Australia/Sydney");
+  //Sydney
 
-  sydneyDateElement.innerHTML = sydneyTime.format("MMMM Do yyyy");
-  sydneyTimeElement.innerHTML = sydneyTime.format(
-    "h:mm:ss [<small>]A[</small>]"
-  );
+  let sydneyElement = document.querySelector("#sydney");
+  if (sydneyElement) {
+    let sydneyDateElement = sydneyElement.querySelector(".date");
+    let sydneyTimeElement = sydneyElement.querySelector(".time");
+    let sydneyTime = moment().tz("Australia/Sydney");
+
+    sydneyDateElement.innerHTML = sydneyTime.format("MMMM Do yyyy");
+    sydneyTimeElement.innerHTML = sydneyTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
+
+  //Singapore
+
+  let singaporeElement = document.querySelector("#singapore");
+  if (singaporeElement) {
+    let singaporeDateElement = singaporeElement.querySelector(".date");
+    let singaporeTimeElement = singaporeElement.querySelector(".time");
+    let singaporeTime = moment().tz("Singapore");
+
+    singaporeDateElement.innerHTML = singaporeTime.format("MMMM Do yyyy");
+    singaporeTimeElement.innerHTML = singaporeTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
 }
 
 function updateCity(event) {
@@ -44,7 +59,7 @@ function updateCity(event) {
       <div class="time">
         ${cityTime.format("h:mm:ss")} <small>${cityTime.format("A")}</small>
       </div>
-    </div>`;
+    </div>  <a href="/">Back to city list</a>`;
 }
 updateTime();
 setInterval(updateTime, 1000);

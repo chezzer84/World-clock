@@ -59,6 +59,11 @@ select {
   vertical-align: middle;
 }
 
+.backLink {
+  color: pink;
+  text-decoration: dashed;
+}
+
 footer {
   text-align: center;
   font-size: 18px;
