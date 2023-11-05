@@ -5,10 +5,24 @@ function updateTime() {
   if (losangelesElement) {
     let losangelesDateElement = losangelesElement.querySelector(".date");
     let losangelesTimeElement = losangelesElement.querySelector(".time");
-    let losangelesTime = moment().tz("America/Los_Angeles");
+    let losangelesTime = moment().tz("America / Los_Angeles");
 
     losangelesDateElement.innerHTML = losangelesTime.format("MMMM Do yyyy");
     losangelesTimeElement.innerHTML = losangelesTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
+
+  //london
+
+  let londonElement = document.querySelector("#london");
+  if (londonElement) {
+    let londonDateElement = londonElement.querySelector(".date");
+    let londonTimeElement = londonElement.querySelector(".time");
+    let londonTime = moment().tz("Europe/London");
+
+    londonDateElement.innerHTML = londonTime.format("MMMM Do yyyy");
+    londonTimeElement.innerHTML = londonTime.format(
       "h:mm:ss [<small>]A[</small>]"
     );
   }
