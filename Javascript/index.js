@@ -2,18 +2,21 @@ function updateTime() {
   //los angeles
 
   let losangelesElement = document.querySelector("#los-angeles");
-  let losangelesDateElement = losangelesElement.querySelector(".date");
-  let losangelesTimeElement = losangelesElement.querySelector(".time");
-  let losangelesTime = moment().tz("America/Los_Angeles");
+  if (losangelesElement) {
+    let losangelesDateElement = losangelesElement.querySelector(".date");
+    let losangelesTimeElement = losangelesElement.querySelector(".time");
+    let losangelesTime = moment().tz("America/Los_Angeles");
 
-  losangelesDateElement.innerHTML = losangelesTime.format("MMMM Do yyyy");
-  losangelesTimeElement.innerHTML = losangelesTime.format(
-    "h:mm:ss [<small>]A[</small>]"
-  );
+    losangelesDateElement.innerHTML = losangelesTime.format("MMMM Do yyyy");
+    losangelesTimeElement.innerHTML = losangelesTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
+}
+//Sydney
 
-  //Sydney
-
-  let sydneyElement = document.querySelector("#sydney");
+let sydneyElement = document.querySelector("#sydney");
+if (sydneyElement) {
   let sydneyDateElement = sydneyElement.querySelector(".date");
   let sydneyTimeElement = sydneyElement.querySelector(".time");
   let sydneyTime = moment().tz("Australia/Sydney");
@@ -24,5 +27,24 @@ function updateTime() {
   );
 }
 
+function updateCity(event) {
+  let cityTimeZone = event.target.value;
+  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+  let cityTime = moment().tz(cityTimeZone);
+  let citiesElement = document.querySelector("#cities");
+  citiesElement.innerHTML = `
+    <div class="city">
+      <div>
+        <h2>${cityName}</h2>
+        <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
+      </div>
+      <div class="time">
+        ${cityTime.format("h:mm:ss")} <small>${cityTime.format("A")}</small>
+      </div>
+    </div>`;
+}
 updateTime();
 setInterval(updateTime, 1000);
+
+let citiesSelectElement = document.querySelector("#city");
+citiesSelectElement.addEventListener("change", updateCity);
