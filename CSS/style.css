@@ -1,13 +1,18 @@
 body {
-  background-color: #f9f7fe;
-  font-family: sans-serif;
+  background: rgb(223, 197, 208);
+  background: radial-gradient(
+    circle,
+    rgba(223, 197, 208, 0.8477766106442577) 0%,
+    rgba(195, 209, 226, 0.8169642857142857) 100%
+  );
+  font-family: "Poppins", sans-serif;
 }
 
 h1 {
   color: black;
   text-align: center;
-  font-family: sans-serif;
   font-size: 36px;
+  font-weight: bold;
 }
 
 h2 {
@@ -28,7 +33,7 @@ select {
   margin: 60px auto;
   background: white;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
@@ -59,13 +64,8 @@ select {
   vertical-align: middle;
 }
 
-.backLink {
-  color: pink;
-  text-decoration: dashed;
-}
-
 footer {
   text-align: center;
   font-size: 18px;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(15, 14, 14, 0.8);
 }
